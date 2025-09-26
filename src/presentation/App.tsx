@@ -31,10 +31,10 @@ const AppRoutes: React.FC = () => {
 
   if (!isInitialized) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center bg-surface">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-indigo-600"></div>
-          <p className="mt-4 text-gray-600">Inicializando aplicação...</p>
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
+          <p className="mt-4 text-on-surface-variant">Inicializando aplicação...</p>
         </div>
       </div>
     );
@@ -43,7 +43,6 @@ const AppRoutes: React.FC = () => {
   return (
     <Router>
       <Routes>
-        {/* Rota de login */}
         <Route
           path="/login"
           element={
@@ -58,7 +57,6 @@ const AppRoutes: React.FC = () => {
           }
         />
 
-        {/* Rota de registro */}
         <Route
           path="/register"
           element={
@@ -73,7 +71,6 @@ const AppRoutes: React.FC = () => {
           }
         />
 
-        {/* Rota protegida do dashboard */}
         <Route
           path="/dashboard"
           element={
@@ -83,7 +80,6 @@ const AppRoutes: React.FC = () => {
           }
         />
 
-        {/* Rota raiz - redireciona baseado no estado de autenticação */}
         <Route
           path="/"
           element={
@@ -95,17 +91,16 @@ const AppRoutes: React.FC = () => {
           }
         />
 
-        {/* Rota 404 */}
         <Route
           path="*"
           element={
-            <div className="min-h-screen flex items-center justify-center bg-gray-50">
+            <div className="min-h-screen flex items-center justify-center bg-surface">
               <div className="text-center">
-                <h1 className="text-4xl font-bold text-gray-900 mb-4">404</h1>
-                <p className="text-gray-600 mb-4">Página não encontrada</p>
+                <h1 className="text-4xl font-bold text-on-surface mb-4">404</h1>
+                <p className="text-on-surface-variant mb-4">Página não encontrada</p>
                 <button
                   onClick={() => window.location.href = '/'}
-                  className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md"
+                  className="bg-primary hover:opacity-90 text-on-primary px-4 py-2 rounded-lg font-medium transition-opacity"
                 >
                   Voltar ao início
                 </button>
@@ -118,9 +113,6 @@ const AppRoutes: React.FC = () => {
   );
 };
 
-/**
- * Componente principal da aplicação
- */
 const App: React.FC = () => {
   return (
     <Provider store={store}>

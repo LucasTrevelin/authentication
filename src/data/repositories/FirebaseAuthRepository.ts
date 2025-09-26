@@ -79,9 +79,6 @@ export class FirebaseAuthRepository implements AuthRepository {
     return firebaseUser ? this.mapFirebaseUserToUser(firebaseUser) : null
   }
 
-  /**
-   * Envia email de verificação
-   */
   async sendEmailVerification(): Promise<AuthResult<void>> {
     try {
       const user = auth.currentUser
@@ -99,9 +96,6 @@ export class FirebaseAuthRepository implements AuthRepository {
     }
   }
 
-  /**
-   * Redefine a senha
-   */
   async resetPassword(email: string): Promise<AuthResult<void>> {
     try {
       await sendPasswordResetEmail(auth, email)
